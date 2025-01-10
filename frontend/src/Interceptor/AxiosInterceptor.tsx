@@ -3,7 +3,7 @@ import { removeUser } from "../Slices/UserSlice";
 import { removeJwt } from "../Slices/JwtSlice";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://jobportal-backend-356m.onrender.com'
+    baseURL: '${BASE_URI}'
 });
 
 axiosInstance.interceptors.request.use(
