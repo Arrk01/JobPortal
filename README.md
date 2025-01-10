@@ -90,7 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Here are some screenshots of the application in action:
 
 ### Photo:
-![Photo](photo22.png)(https://www.youtube.com/watch?v=3-OYubjNHBk)
+[![Watch the video](photo22.png)](https://www.youtube.com/watch?v=3-OYubjNHBk)
 
 ---
 
