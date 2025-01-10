@@ -90,10 +90,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Here are some screenshots of the application in action:
 
 ### Photo:
-![Job Seeker Dashboard](photo22.png)
+![Photo](photo22.png)
 
 ### Video:
-![Employer Dashboard](JobPortalVideo.mp4)
+![Video](JobPortalVideo.mp4)
 
 ---
 
