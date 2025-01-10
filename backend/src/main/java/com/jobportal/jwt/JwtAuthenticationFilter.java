@@ -1,6 +1,5 @@
 package com.jobportal.jwt;
 
-
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,76 +24,58 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtHelper jwtHelper;
 
-
     @Autowired
     private UserDetailsService userDetailsService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
 
-//        try {
-//            Thread.sleep(500);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-        //Authorization
-
+        // Authorization Header
         String requestHeader = request.getHeader("Authorization");
-        //Bearer 2352345235sdfrsfgsdfsdf
-        // logger.info(" Header :  {}", requestHeader);
         String username = null;
         String token = null;
+
         if (requestHeader != null && requestHeader.startsWith("Bearer")) {
-            //looking good
+            // Extract the token from the header
             token = requestHeader.substring(7);
+
             try {
-
+                // Get the username from the token
                 username = this.jwtHelper.getUsernameFromToken(token);
-
-            } catch (IllegalArgumentException e) {
-                logger.info("Illegal Argument while fetching the username !!");
-                e.printStackTrace();
-            } catch (ExpiredJwtException e) {
-                logger.info("Given jwt token is expired !!");
-                e.printStackTrace();
-            } catch (MalformedJwtException e) {
-                logger.info("Some changed has done in token !! Invalid Token");
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-
+            } catch (ExpiredJwtException | MalformedJwtException | IllegalArgumentException e) {
+                logger.error("JWT processing error: {}");
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
+                response.getWriter().write("Invalid or expired token.");
+                return;
             }
-
-
         } else {
-            logger.info("Invalid Header Value !! ");
+            logger.debug("Invalid Authorization header.");
         }
 
-
-        //
+        // If username is not null and no authentication is present, validate token
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-
-            //fetch user detail from username
+            // Fetch user details using the username
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
             Boolean validateToken = this.jwtHelper.validateToken(token, userDetails.getUsername());
-            if (validateToken) {
 
-                //set the authentication
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            if (validateToken) {
+                // Set the authentication context
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                        userDetails, null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
-
             } else {
-                logger.info("Validation fails !!");
+                logger.info("JWT token validation failed.");
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
+                response.getWriter().write("Invalid token.");
+                return;
             }
-
-
         }
 
+        // Continue the filter chain
         filterChain.doFilter(request, response);
-
-
     }
 }

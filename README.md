@@ -1,201 +1,163 @@
 
- JobPortal  
-A full-stack job management platform built to connect job seekers with employers, leveraging modern web technologies and robust backend services.
+# 🧑‍💻 Job Portal
 
+## 📋 Description
 
+**Job Portal** is a full-stack web application designed to help job seekers find suitable job listings and employers hire the right talent. With user-friendly interfaces for both job seekers and employers, the platform allows job seekers to register, create a profile, and apply for job listings. Employers can post jobs, view applications, and manage their listings. 
 
- Table of Contents  
+The project is built using **React** for the frontend and **Spring Boot** for the backend. It incorporates JWT authentication, real-time notifications, and an advanced search for job listings.
 
-1. [Overview](overview)  
-2. [Architecture](architecture)  
-3. [Tech Stack](tech-stack)  
-4. [Features](features)  
-5. [Setup and Installation](setup-and-installation)  
-6. [API Endpoints](api-endpoints)  
-7. [Database Schema](database-schema)  
-8. [Contributing](contributing)  
-9. [License](license)  
-10. [Contact](contact)  
+### 🌐 Project Links:
+- [Frontend Repository](https://github.com/Arrk01/Jobportal-frontend)
+- [Backend Repository](https://github.com/Arrk01/Jobportal-backend)
 
+## ✨ Features
 
+- **🔒 User Authentication**: Secure login and signup via JWT with social login options (Google/Facebook).
+- **👤 User Profiles**: Job seekers can create and manage their personal profiles, upload resumes, and track their applications.
+- **📢 Job Listings**: Employers can post job openings, and job seekers can browse and apply to available positions.
+- **📄 Resume Upload**: Job seekers can upload resumes and cover letters for job applications.
+- **👨‍💼 Employer Dashboard**: Employers can view job applicants, manage job postings, and track the hiring process.
+- **🔔 Real-time Notifications**: Notifications for job applications, job alerts, and updates.
+- **🔍 Advanced Job Search**: Filters to search job listings by title, location, company, salary, etc.
+- **💬 Messaging**: Direct messaging between job seekers and employers.
 
- Overview  
+## ⚙️ Installation Instructions
 
-JobPortal is a full-stack web application enabling job seekers to discover opportunities and employers to post job openings efficiently. Built using Spring Boot for a scalable backend and a responsive frontend, the system integrates authentication, data persistence, and REST APIs for smooth interaction.
+To set up the project locally, follow the steps below.
 
+### Frontend Setup (React)
 
-
- Architecture  
-
-The application follows a 3-tier architecture:  
-
-- Frontend: Static pages rendered using HTML, CSS, Bootstrap, and JavaScript.  
-- Backend: RESTful APIs powered by Spring Boot, providing data handling and business logic.  
-- Database: MySQL for relational data storage with JPA and Hibernate ORM integration.  
-
-The application also incorporates Maven for dependency management and Git for version control.  
-
-
-
- Tech Stack  
-
- Backend  
-- Java 17  
-- Spring Boot 3.x  
-- Spring Data JPA (Hibernate ORM)  
-- REST APIs  
-- Maven (Build tool)  
-
- Frontend  
-- HTML5, CSS3  
-- Bootstrap 5  
-- JavaScript (Vanilla JS)  
-
- Database  
-- MySQL 8.x  
-
- Tools & Platforms  
-- Git and GitHub (Version Control)  
-- Postman (API Testing)  
-- IntelliJ IDEA / VS Code (Development IDE)  
-- MySQL Workbench  
-
-
-
- Features  
-
- Job Seekers  
-- User authentication (Sign Up, Login).  
-- Browse, search, and filter job listings using RESTful APIs.  
-- Apply to jobs and upload resumes.  
-
- Employers  
-- Create, update, and delete job postings.  
-- View and filter applicant data.  
-- Manage job status (Open/Closed).  
-
- General  
-- Secure APIs using JWT Authentication (future enhancement).  
-- Responsive UI for a seamless experience across devices.  
-- Modular project structure for scalability and maintainability.  
-
-
-
- Setup and Installation  
-
- Prerequisites  
-Ensure the following are installed:  
-- Java 17  
-- MySQL 8.x  
-- Maven 3.x  
-
-
-
- 1. Clone the Repository  
- 
-git clone https://github.com/Arrk01/JobPortal.git  
-cd JobPortal  
-```
-
-
-
- 2. Backend Setup  
-
-1. Configure Database:  
-   - Create a MySQL database named `job_portal`.  
-   - Update `application.properties` in the Spring Boot project:  
-     ```properties  
-     spring.datasource.url=jdbc:mysql://localhost:3306/job_portal  
-     spring.datasource.username=root  
-     spring.datasource.password=password  
-     spring.jpa.hibernate.ddl-auto=update  
-     spring.jpa.show-sql=true  
-     ```
-
-2. Build and Run the Backend  
-    
-   mvn clean install  
-   mvn spring-boot:run  
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Arrk01/Jobportal-frontend.git
    ```
 
-   - Backend runs on http://localhost:8080.  
-
-
-
- 3. Frontend Setup  
-
-- Open `index.html` in a browser.  
-- Alternatively, use a simple HTTP server like VS Code's Live Server extension:  
-    
-   npx http-server ./frontend -p 8081  
+2. **Navigate into the frontend directory:**
+   ```bash
+   cd Jobportal-frontend
    ```
 
-- Frontend runs on http://localhost:8081.
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
+4. **Run the application locally:**
+   ```bash
+   npm start
+   ```
+   This will run the frontend on `http://localhost:3000`.
 
+### Backend Setup (Spring Boot)
 
- API Endpoints  
+1. **Clone the backend repository:**
+   ```bash
+   git clone https://github.com/Arrk01/Jobportal-backend.git
+   ```
 
-| Method     | Endpoint                      | Description                          |
-| `POST`     | `/api/auth/register`          | Register a new user.                 |
-| `POST`     | `/api/auth/login`             | Authenticate and obtain a token.     |
-| `GET`      | `/api/jobs`                   | Retrieve all job listings.           |
-| `POST`     | `/api/jobs`                   | Create a new job posting (Employer). |
-| `GET`      | `/api/jobs/{id}`              | Get details of a specific job.       |
-| `PUT`      | `/api/jobs/{id}`              | Update a job posting.                |
-| `DELETE`   | `/api/jobs/{id}`              | Delete a job posting.                |
-| `POST`     | `/api/jobs/{id}/apply`        | Apply to a job (Job Seeker).         |
+2. **Navigate into the backend directory:**
+   ```bash
+   cd Jobportal-backend
+   ```
 
+3. **Install the necessary dependencies using Maven:**
+   ```bash
+   mvn clean install
+   ```
 
+4. **Configure database properties**: 
+   - Edit `src/main/resources/application.properties` to configure database and JWT secret.
 
- Database Schema  
+5. **Run the Spring Boot application:**
+   ```bash
+   mvn spring-boot:run
+   ```
+   The backend will run on `http://localhost:8080`.
 
- Users Table  
-| Column       | Type          | Description          |   
-| id           | INT (PK)      | Auto-increment ID.   |  
-| username     | VARCHAR(255)  | Unique username.     |  
-| password     | VARCHAR(255)  | Encrypted password.  |  
-| role         | ENUM          | USER/EMPLOYER.       |  
+## 📚 Usage
 
- Jobs Table  
-| Column       | Type          | Description          |   
-| id           | INT (PK)      | Auto-increment ID.   |  
-| title        | VARCHAR(255)  | Job title.           |  
-| description  | TEXT          | Job description.     |  
-| company      | VARCHAR(255)  | Employer company.    |  
-| location     | VARCHAR(255)  | Job location.        |  
+Once both the frontend and backend are running, you can begin using the application.
 
- Applications Table  
-| Column       | Type          | Description          |  
-| id           | INT (PK)      | Auto-increment ID.   |  
-| job_id       | INT (FK)      | Reference to Job ID. |  
-| user_id      | INT (FK)      | Reference to User ID.|  
-| resume_link  | VARCHAR(255)  | Uploaded resume URL. |  
+### Job Seekers
+- **Register**: Create a new account via email or social login (Google/Facebook).
+- **Login**: Sign in to access the platform.
+- **Create a Profile**: Add details such as your experience, skills, and upload a resume.
+- **Browse Jobs**: Search for job listings using filters such as location, salary, and company.
+- **Apply for Jobs**: Apply directly for jobs through your profile.
 
+### Employers
+- **Sign Up**: Create an employer account.
+- **Post Jobs**: Add job listings with details about the job, company, and qualifications.
+- **Manage Listings**: Edit and delete job postings.
+- **Review Applicants**: View profiles and resumes of job seekers who have applied.
 
+### Notifications
+- **Job Alerts**: Job seekers get notified when new jobs matching their criteria are posted.
+- **Application Updates**: Get notifications on the status of your job applications.
 
- Contributing  
+## 🤝 Contributing
 
-Contributions are welcome! Follow these steps:  
+We welcome contributions! Here's how you can help:
 
-1. Fork the repository.  
-2. Create a new branch: `git checkout -b feature/YourFeatureName`.  
-3. Commit your changes: `git commit -m "Add feature: XYZ"`.  
-4. Push to your branch: `git push origin feature/YourFeatureName`.  
-5. Open a Pull Request.  
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your changes:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Make your changes, ensuring to write tests for new features or bug fixes.
+4. Push your changes to your forked repository:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Open a pull request to the `main` branch of this repository.
 
+### Code of Conduct
+Please follow the [Code of Conduct](CODE_OF_CONDUCT.md) while contributing.
 
+## 📝 License
 
- License  
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
+## 🛠️ Technologies Used
 
+- **Frontend**:
+  - 🔧 React.js
+  - 🎨 Tailwind CSS (for styling)
+  - 📦 Redux (for state management)
+  - 🌐 Axios (for making API requests)
+  - 🛠️ React Router (for routing)
+  
+- **Backend**:
+  - 🖥️ Spring Boot
+  - 🛡️ Spring Security (for authentication and authorization)
+  - 🔑 JWT (JSON Web Tokens for authentication)
+  - 🗃️ PostgreSQL (database management)
+  
+- **Other Tools**:
+  - ⚙️ Maven (for dependency management and build)
+  - 🛠️ GitHub Actions (for CI/CD)
+  - 🌐 Docker (optional, for containerizing the application)
 
+## 📸 Screenshots
 
- Contact  
+Here are some screenshots of the application in action:
 
-- Developer: Abhishek Kumar  
-- GitHub: [Arrk01](https://github.com/Arrk01)  
-- Email: itzabhi1114@gmail.com
+### Frontend (Job Seekers Dashboard):
+![Job Seeker Dashboard](path_to_screenshot1.png)
 
-For questions, feedback, or feature requests, feel free to reach out! 🚀  
+### Employer Dashboard:
+![Employer Dashboard](path_to_screenshot2.png)
+
+### Job Search Page:
+![Job Search](path_to_screenshot3.png)
+
+---
+
+### 🙏 Acknowledgements
+- Special thanks to all contributors for their valuable input.
+- To the open-source community for the libraries and tools that helped in building this project.
+
+---
+
+This README file now includes more polished sections, icons for visual appeal, and a clear structure to guide users through the project. Be sure to replace any placeholder links and paths with actual content.
