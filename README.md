@@ -10,6 +10,7 @@ The project is built using **React** for the frontend and **Spring Boot** for th
 ### 🌐 Project Links:
 - [Frontend Repository](https://github.com/Arrk01/Jobportal-frontend)
 - [Backend Repository](https://github.com/Arrk01/Jobportal-backend)
+- [Website Link](https://jobportal-frontend-sog4.onrender.com/)
 
 ## ✨ Features
 
@@ -143,14 +144,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Here are some screenshots of the application in action:
 
-### Frontend (Job Seekers Dashboard):
+### Photo:
 ![Job Seeker Dashboard](path_to_screenshot1.png)
 
-### Employer Dashboard:
+### Video:
 ![Employer Dashboard](path_to_screenshot2.png)
-
-### Job Search Page:
-![Job Search](path_to_screenshot3.png)
 
 ---
 
