@@ -8,8 +8,8 @@
 The project is built using **React** for the frontend and **Spring Boot** for the backend. It incorporates JWT authentication, real-time notifications, and an advanced search for job listings.
 
 ### 🌐 Project Links:
-- [Frontend Repository](https://github.com/Arrk01/Jobportal-frontend)
-- [Backend Repository](https://github.com/Arrk01/Jobportal-backend)
+- [Frontend Repository](https://github.com/Arrk01/JobPortal2/tree/main/frontend)
+- [Backend Repository](https://github.com/Arrk01/JobPortal2/tree/main/backend)
 - [Website Link](https://jobportal-frontend-sog4.onrender.com/)
 
 ## ✨ Features
@@ -23,62 +23,7 @@ The project is built using **React** for the frontend and **Spring Boot** for th
 - **🔍 Advanced Job Search**: Filters to search job listings by title, location, company, salary, etc.
 - **💬 Messaging**: Direct messaging between job seekers and employers.
 
-## ⚙️ Installation Instructions
-
-To set up the project locally, follow the steps below.
-
-### Frontend Setup (React)
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Arrk01/Jobportal-frontend.git
-   ```
-
-2. **Navigate into the frontend directory:**
-   ```bash
-   cd Jobportal-frontend
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-4. **Run the application locally:**
-   ```bash
-   npm start
-   ```
-   This will run the frontend on `http://localhost:3000`.
-
-### Backend Setup (Spring Boot)
-
-1. **Clone the backend repository:**
-   ```bash
-   git clone https://github.com/Arrk01/Jobportal-backend.git
-   ```
-
-2. **Navigate into the backend directory:**
-   ```bash
-   cd Jobportal-backend
-   ```
-
-3. **Install the necessary dependencies using Maven:**
-   ```bash
-   mvn clean install
-   ```
-
-4. **Configure database properties**: 
-   - Edit `src/main/resources/application.properties` to configure database and JWT secret.
-
-5. **Run the Spring Boot application:**
-   ```bash
-   mvn spring-boot:run
-   ```
-   The backend will run on `http://localhost:8080`.
-
 ## 📚 Usage
-
-Once both the frontend and backend are running, you can begin using the application.
 
 ### Job Seekers
 - **Register**: Create a new account via email or social login (Google/Facebook).
@@ -133,7 +78,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   - 🖥️ Spring Boot
   - 🛡️ Spring Security (for authentication and authorization)
   - 🔑 JWT (JSON Web Tokens for authentication)
-  - 🗃️ PostgreSQL (database management)
+  - 🗃️ MongoDB (database management)
   
 - **Other Tools**:
   - ⚙️ Maven (for dependency management and build)
@@ -145,10 +90,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Here are some screenshots of the application in action:
 
 ### Photo:
-![Job Seeker Dashboard](path_to_screenshot1.png)
+![Job Seeker Dashboard](https://drive.google.com/file/d/1pJLDT3hweIyDJ4C7yVQcRooBQSeI2Vd6/view?usp=sharing)
 
 ### Video:
-![Employer Dashboard](path_to_screenshot2.png)
+![Employer Dashboard](https://drive.google.com/file/d/1iqP9Ik2mqXtNxmDGcv7P37KRIj9sCfPQ/view?usp=sharing)
 
 ---
 
@@ -157,5 +102,3 @@ Here are some screenshots of the application in action:
 - To the open-source community for the libraries and tools that helped in building this project.
 
 ---
-
-This README file now includes more polished sections, icons for visual appeal, and a clear structure to guide users through the project. Be sure to replace any placeholder links and paths with actual content.
