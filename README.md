@@ -93,7 +93,7 @@ Here are some screenshots of the application in action:
 ![Photo](photo22.png)
 
 ### Video:
-![Video](JobPortalVideo.mp4)
+[![Watch the video](photo22.png)](https://www.youtube.com/watch?v=3-OYubjNHBk)
 
 ---
 
